@@ -2,6 +2,11 @@
   "name": "solarsnowfall/cache-interface",
   "description": "Simplified cache interface with Memcache implementation.",
   "license": "MIT",
+  "keywords": [
+    "cache",
+    "Memcache",
+    "Memcached"
+  ],
   "authors": [
     {
       "name": "name",
