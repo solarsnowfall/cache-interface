@@ -4,12 +4,13 @@
   "license": "MIT",
   "authors": [
     {
-      "name": "Travis Miller",
-      "email": "travis@twooutrally.com"
+      "name": "name",
+      "email": "email@email.com"
     }
   ],
   "require": {
-    "solarsnowfall/test-package": "1.0.0"
+    "solarsnowfall/class-singleton": "*",
+    "ext-memcache": "*"
   },
   "autoload": {
     "psr-4": {
