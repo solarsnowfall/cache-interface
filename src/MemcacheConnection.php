@@ -11,10 +11,13 @@ class MemcacheConnection extends SingletonFactory
     const DEFAULT_PARAMS = [['host' => 'localhost', 'port' => 11211]];
 
     /**
-     * @return MemcacheAdapter
+     * Redeclaration for type specificity.
+     *
+     * @param array $params
+     * @return MemcacheAdapter|null
      * @throws \Exception
      */
-    public static function get(array $params = self::DEFAULT_PARAMS): ?object
+    public static function get(array $params = self::DEFAULT_PARAMS): ?MemcacheAdapter
     {
         return parent::get($params);
     }
