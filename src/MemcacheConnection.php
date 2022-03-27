@@ -1,45 +1,37 @@
 <?php
 
-namespace Solarsnowfall;
+namespace Solarsnowfall\Cache;
 
-class MemcacheConnection extends ClassSingleton
+use Solarsnowfall\Reflection\SingletonFactory;
+
+class MemcacheConnection extends SingletonFactory
 {
-    const CLASS_NAME = 'Solarsnowfall\\MemcacheAdapter';
+    const CLASS_NAME = 'Solarsnowfall\\Cache\\MemcacheAdapter';
+
+    const DEFAULT_PARAMS = [['host' => 'localhost', 'port' => 11211]];
 
     /**
      * @return MemcacheAdapter
      * @throws \Exception
      */
-    public static function get(): MemcacheAdapter
+    public static function get(array $params = self::DEFAULT_PARAMS): ?object
     {
-        return parent::get();
+        return parent::get($params);
     }
 
     /**
-     * @return array[]
+     * @param array $params
+     * @return MemcacheAdapter|null
      */
-    public static function instanceArgs(): array
-    {
-        return [
-            [
-                'host' => 'localhost',
-                'port' => 11211
-            ]
-        ];
-    }
-
-    /**
-     * @return MemcacheAdapter
-     */
-    public static function newInstance(): MemcacheAdapter
+    public static function newInstance(array $params = self::DEFAULT_PARAMS): ?MemcacheAdapter
     {
         $store = new \Memcache();
 
-        $servers = static::instanceArgs();
+        $adapter = new MemcacheAdapter($store);
 
-        foreach ($servers as $server)
-            $store->addServer($server['host'], $server['port']);
+        foreach ($params as $server)
+            $adapter->addServer($server['host'], $server['port']);
 
-        return new MemcacheAdapter($store);
+        return $adapter;
     }
 }

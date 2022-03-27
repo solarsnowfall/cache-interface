@@ -14,12 +14,12 @@
     }
   ],
   "require": {
-    "solarsnowfall/class-singleton": "*",
+    "solarsnowfall/reflection-factory": "*",
     "ext-memcache": "*"
   },
   "autoload": {
     "psr-4": {
-      "Solarsnowfall\\" : "src"
+      "Solarsnowfall\\Cache\\" : "src"
     }
   },
   "minimum-stability": "dev"

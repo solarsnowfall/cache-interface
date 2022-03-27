@@ -1,6 +1,6 @@
 <?php
 
-namespace Solarsnowfall;
+namespace Solarsnowfall\Cache;
 
 class MemcacheAdapter extends CacheAbstract implements CacheInterface
 {

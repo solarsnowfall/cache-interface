@@ -1,6 +1,6 @@
 <?php
 
-namespace Solarsnowfall;
+namespace Solarsnowfall\Cache;
 
 class CacheAbstract
 {
@@ -22,6 +22,16 @@ class CacheAbstract
         $this->store = $store;
 
         $this->listKey = '__' . str_replace('\\', '__', get_called_class()) . '__';
+    }
+
+    /**
+     * @param string $host
+     * @param int $port
+     * @return bool
+     */
+    public function addServer(string $host, int $port): bool
+    {
+        return $this->store->addServer($host, $port);
     }
 
     /**
