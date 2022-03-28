@@ -11,7 +11,7 @@ class MemcacheConnection extends SingletonFactory
     const DEFAULT_PARAMS = [['host' => 'localhost', 'port' => 11211]];
 
     /**
-     * Redeclaration for type specificity.
+     * Redeclaration for type specificity...
      *
      * @param array $params
      * @return MemcacheAdapter|null
