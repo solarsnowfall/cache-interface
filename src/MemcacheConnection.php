@@ -8,17 +8,26 @@ class MemcacheConnection extends SingletonFactory
 {
     const CLASS_NAME = 'Solarsnowfall\\Cache\\MemcacheAdapter';
 
-    const DEFAULT_PARAMS = [['host' => 'localhost', 'port' => 11211]];
+    /**
+     * @return array[]
+     */
+    public static function defaultInstanceParams(): array
+    {
+        return [['host' => 'localhost', 'port' => 11211]];
+    }
 
     /**
      * Redeclaration for type specificity...
      *
-     * @param array $params
+     * @param array|null $params
      * @return MemcacheAdapter|null
      * @throws \Exception
      */
-    public static function get(array $params = self::DEFAULT_PARAMS): ?MemcacheAdapter
+    public static function get(array $params = null): ?MemcacheAdapter
     {
+        if ($params === null)
+            $params = static::defaultInstanceParams();
+
         return parent::get($params);
     }
 
@@ -26,7 +35,7 @@ class MemcacheConnection extends SingletonFactory
      * @param array $params
      * @return MemcacheAdapter|null
      */
-    public static function newInstance(array $params = self::DEFAULT_PARAMS): ?MemcacheAdapter
+    public static function newInstance(array $params): ?MemcacheAdapter
     {
         $store = new \Memcache();
 
