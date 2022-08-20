@@ -5,7 +5,7 @@
   "keywords": [
     "cache",
     "Memcache",
-    "Memcached"
+    "Redis"
   ],
   "authors": [
     {

@@ -6,7 +6,7 @@ use Solarsnowfall\Reflection\SingletonFactory;
 
 class MemcacheConnection extends SingletonFactory
 {
-    const CLASS_NAME = 'Solarsnowfall\\Cache\\MemcacheAdapter';
+    const CLASS_NAME = MemcacheAdapter::class;
 
     /**
      * @return array[]
